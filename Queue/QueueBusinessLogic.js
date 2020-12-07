@@ -11,3 +11,8 @@ class Queue {
     constructor() {
         this.queue = [];
     }
+    //method adds an element at the end of the queue
+    
+    enqueue(element) {
+        this.queue.push(element)
+    
