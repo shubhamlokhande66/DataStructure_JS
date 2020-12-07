@@ -22,3 +22,14 @@ class Stack {
         this.arr[this.top] = num;
         this.size++;
     }
+    //method to delete last element from stack
+    pop() {
+        if (this.top === -1) {
+            console.log("stack is in underflow");
+            return "Stack is empty";
+
+        } else {
+            this.size--;
+            return this.arr[this.top--];
+        }
+    }
