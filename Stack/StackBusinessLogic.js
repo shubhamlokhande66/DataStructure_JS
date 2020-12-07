@@ -8,3 +8,11 @@
  */
 
 // definition of class
+class Stack {
+
+    //constructor of Stack class
+    constructor() {
+        this.arr = [];
+        this.top = -1;
+        this.size = 0;
+    }
