@@ -26,3 +26,28 @@ class LinkedList {
         this.head = null;
         //this.next=null
     }
+    addNode(data) {
+        let first = new Node(data);
+  
+        let current = this.head;
+        if (this.head == null) {
+            return this.head = first;
+        }
+        else {
+            while (current.next) {
+                current = current.next;
+            }
+            current.next = first;
+            return first = current;
+        }
+    }
+      
+      
+      //add first in linkedlist
+      //param data take from user
+  
+      addFirst(data) {
+          let firstNode = new Node(data);
+          firstNode.next = this.head;
+          this.head = firstNode;
+      }
