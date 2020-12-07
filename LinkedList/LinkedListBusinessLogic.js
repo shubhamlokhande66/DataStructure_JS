@@ -87,3 +87,20 @@ class LinkedList {
 
         return (str);
     }
+// delete first from linkedlist
+
+deleteFirst() {
+    this.head = this.head.next;
+    return this.head;
+}
+
+// delete last in linkedlist
+deleteLast() {
+    let lastNode = this.head;
+    let previous;
+    while (lastNode.next != null) {
+        previous = lastNode;
+        lastNode = lastNode.next;
+    }
+    previous.next = null;
+}
