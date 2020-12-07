@@ -12,7 +12,14 @@ class Queue {
         this.queue = [];
     }
     //method adds an element at the end of the queue
-    
+
     enqueue(element) {
         this.queue.push(element)
+    }
+    //method removes an element from the front of the queue
     
+    dequeue() { 
+        if(this.isEmpty()) 
+            return "Underflow"; 
+        return this.queue.shift(); 
+    }
