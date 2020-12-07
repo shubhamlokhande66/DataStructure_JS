@@ -17,9 +17,14 @@ class Queue {
         this.queue.push(element)
     }
     //method removes an element from the front of the queue
-    
+
     dequeue() { 
         if(this.isEmpty()) 
             return "Underflow"; 
         return this.queue.shift(); 
     }
+    front() { 
+        if(this.isEmpty()) 
+            return "No elements in Queue"; 
+        return this.queue[0]; 
+    } 
