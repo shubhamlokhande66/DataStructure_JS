@@ -29,7 +29,15 @@ class Queue {
         return this.queue[0]; 
     } 
     //method checks if a queue is empty by checking if the length property of the array is zero.
-    
+
     isEmpty() { 
         return this.queue.length == 0; 
     } 
+    printQueue() { 
+        var queuestr = ""; 
+        for(var i = 0; i < this.queue.length; i++) 
+            queuestr += this.queue[i] +" "; 
+        return queuestr; 
+    } 
+}
+module.exports = new Queue
