@@ -10,3 +10,19 @@ const prompt = require('prompt-sync')();
 
 //Create class Node
 //@params data take from user
+class Node {
+
+    constructor(data) {
+        this.data = data;
+        this.next = null;
+    }
+
+}
+
+//Create LinkedList main Class 
+
+class LinkedList {
+    constructor() {
+        this.head = null;
+        //this.next=null
+    }
