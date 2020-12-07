@@ -28,3 +28,8 @@ class Queue {
             return "No elements in Queue"; 
         return this.queue[0]; 
     } 
+    //method checks if a queue is empty by checking if the length property of the array is zero.
+    
+    isEmpty() { 
+        return this.queue.length == 0; 
+    } 
