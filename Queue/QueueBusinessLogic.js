@@ -7,3 +7,7 @@ const prompt = require('prompt-sync')();
  * @author : Shubham Lokhande
  * 
  */
+class Queue {
+    constructor() {
+        this.queue = [];
+    }
