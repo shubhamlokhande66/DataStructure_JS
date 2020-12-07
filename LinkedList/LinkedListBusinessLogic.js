@@ -74,3 +74,16 @@ class LinkedList {
           }
           return current.next = lastNode;
       }
+      //data take from user
+
+    printList() {
+
+        let curr = this.head;
+        let str = " ";
+        while (curr) {
+            str += curr.data + " ";
+            curr = curr.next;
+        }
+
+        return (str);
+    }
