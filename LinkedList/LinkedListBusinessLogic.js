@@ -51,3 +51,26 @@ class LinkedList {
           firstNode.next = this.head;
           this.head = firstNode;
       }
+      //add last in linkedlist
+    //param data take from user
+    isEmpty() {
+        if (this.head === null) {
+            return true;
+        }
+        else {
+            return false;
+        }
+  
+    }
+  
+      addLast(value) {
+          let lastNode = { data: value, next: null };
+          if (this.isEmpty()) {
+              return this.head = lastNode;
+          }
+          let current = this.head;
+          while (current.next != null) {
+              current = current.next;
+          }
+          return current.next = lastNode;
+      }
