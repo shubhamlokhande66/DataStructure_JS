@@ -104,3 +104,18 @@ deleteLast() {
     }
     previous.next = null;
 }
+// param kay take from user
+search(key) {
+    let current = this.head;
+    while (current != null) {
+        if (current.data == key) {
+            return current.data;
+        }
+        current = current.next;
+    }
+
+    return false;
+}
+}
+
+module.exports = LinkedList;
