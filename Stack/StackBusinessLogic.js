@@ -16,3 +16,9 @@ class Stack {
         this.top = -1;
         this.size = 0;
     }
+    //method th push the elements in the end of array
+    push(num) {
+        this.top = this.top + 1;
+        this.arr[this.top] = num;
+        this.size++;
+    }
