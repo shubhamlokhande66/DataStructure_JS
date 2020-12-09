@@ -4,10 +4,10 @@ let arrayf = new ArrayBussinesLogic();
 let element =  prompt("Enter no of array to store : ")
 let array= [];
 
-for (i=0; i<=element; i++){
+for (i=0; i < element; i++){
     array[i]=prompt("Enter the Array Element ");
 }
-for (i=0; i<=element; i++){
+for (i=0; i < element; i++){
     console.log(array[i])
 }
 
@@ -15,7 +15,7 @@ let flag = true;
 function choice(){
 while (flag == true){
       
-        let input = prompt(" Enter Your Choice :  1.Filter  2.Reduce  3.IdexOf 4.Joint  5.Map  6.Splice  7.Shift   8.Sort   n9.Unshift  10.forEach   11.Slice 12.Reverse ");
+        let input = prompt(" Enter Your Choice :  1.Filter  2.Reduce  3.IdexOf 4.Joint  5.Map  6.Splice  7.Shift   8.Sort   9.Unshift  10.forEach   11.Slice  12.Reverse : ");
     
     switch (input) {
     case "1":

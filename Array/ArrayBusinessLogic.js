@@ -1,7 +1,7 @@
 class ArrayBussinesLogic {
 
     filterFunction(array) {
-        console.log("\nYou choose Filter");
+        console.log("You choose Filter");
                 function checkFilter(element) {
                     return element > 25;
                 }
@@ -9,7 +9,7 @@ class ArrayBussinesLogic {
     }
 
     reduceFunction(array) {
-        console.log("\nYou choose Reduce");
+        console.log("You choose Reduce");
                 function findTotal(total, num) {
                     return total + num;
                 }
@@ -17,46 +17,46 @@ class ArrayBussinesLogic {
     }
 
     indexOfFunction(array) {
-        console.log("\nYou choose indexOfFunction");
-                let value = 5;
-                let index = array.indexOf(" ");
-                console.log("Index of element " + value + "is " + index);
+        console.log("You choose indexOfFunction");
+            
+                let index = array.indexOf(" 5 ");
+                console.log("Index of element " + index);
     }
 
     joinFunction(array) {
-        console.log("\nYou choose Join");
+        console.log("You choose Join");
                 console.log(array.join());
     }
 
     mapFunction(array) {
-        console.log("\nYou choose Map");
+        console.log("You choose Map");
                 console.log(array.map(Math.sqrt));
     }
 
     spliceFunction(array) {
-        console.log("\nYou choose Splice");
+        console.log("You choose Splice");
                 console.log(array);
-                array.splice( );
-                console.log(array)
+                array.splice( array );
+                //console.log(array)
     }
 
     shiftFunction(array) {
-        console.log("\nYou choose Shift");
+        console.log("You choose Shift");
                 console.log(array.shift());
     }
 
     sortFunction(array) {
-        console.log("\nYou choose Sort");
+        console.log("You choose Sort");
                 console.log(array.sort());
     }
 
     unshiftFunction(array) {
-        console.log("\nYou choose Unshift");
+        console.log(" You choose Unshift");
                 console.log(array.unshift());
     }
 
     forEachFunction(array) {
-        console.log("\nYou choose forEach");
+        console.log("You choose forEach");
                 function myForEachFunction(item, index) {
                     index + " : " + item
                 }
@@ -64,12 +64,12 @@ class ArrayBussinesLogic {
     }
 
     sliceFunction(array) {
-        console.log("\nYou choose Slice");
+        console.log("You choose Slice");
                 console.log(array.slice(1));
     }
 
     reverseFunction(array) {
-        console.log("\nYou choose Reverse");
+        console.log("You choose Reverse");
                 console.log(array.reverse());
     }
 }

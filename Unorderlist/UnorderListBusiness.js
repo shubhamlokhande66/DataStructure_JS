@@ -1,176 +1,127 @@
+
+const fs = require('fs');
+
 class Node {
-    constructor(data) {
-      this.data = data;
-      this.next = null;
+    constructor(searchWord) {
+        this.searchWord = searchWord;
+        this.next = null;
     }
-  }
-  
-  class OrderList {
+}
+
+class linkedList {
     constructor() {
-      this.head = null;
+        this.head = null;
+        this.size = 0;
     }
-  
-    addElement(data) {
-      let first = new Node(data);
-      let current = this.head;
-      if (this.head == null) {
-        return (this.head = first);
-      } else {
-        while (current.next) {
-          current = current.next;
+    addWord(searchWord) {
+
+        let node = new Node(searchWord);
+
+        let current;
+        // if list is empty add an searchWord and make it head. 
+
+        if (this.head == null) {
+            this.head = node;
         }
-        current.next = first;
-        return (first = current);
-      }
-    }
-  
-    isEmpty() {
-      if (this.head === null) {
-        return true;
-      } else {
-        return false;
-      }
-    }
-  
-    sizee() {
-      let current = this.head;
-      let count = 0;
-      while (current != null) {
-        count++;
-        current = current.next;
-      }
-      return count;
-    }
-  
-    addFirst(data) {
-      let firstNode = new Node(data);
-      firstNode.next = this.head;
-      this.head = firstNode;
-    }
-  
-    addLast(value) {
-      let lastNode = { data: value, next: null };
-      if (this.isEmpty()) {
-        return (this.head = lastNode);
-      }
-      let current = this.head;
-      while (current.next != null) {
-        current = current.next;
-      }
-      return (current.next = lastNode);
-    }
-  
-    printList() {
-      let curr = this.head;
-      let str = " ";
-      while (curr) {
-        str += curr.data + " ";
-        curr = curr.next;
-      }
-      return str;
-    }
-  
-    deleteFirst() {
-      this.head = this.head.next;
-      return this.head;
-    }
-  
-    deleteLast() {
-      let lastNode = this.head;
-      let previous;
-      while (lastNode.next != null) {
-        previous = lastNode;
-        lastNode = lastNode.next;
-      }
-      previous.next = null;
-    }
-  
-    addAtPosition(data, pos) {
-      let newNode = new Node(data);
-      let current, previous;
-      current = this.current;
-      if (pos == 0) {
-        newNode.next = this.head;
-        this.head = newNode;
-      }
-      let count = 0;
-      current = this.head;
-      while (count < pos - 1) {
-        count++;
-        previous = current;
-        current = current.next;
-      }
-      previous.next = newNode;
-      newNode.next = current;
-    }
-  
-    deleteAtPosition(pos) {
-      let possition = this.head;
-      let previous;
-      let count = 0;
-      while (count < pos) {
-        count++;
-        previous = possition;
-        possition = possition.next;
-      }
-      previous.next = possition.next;
-    }
-  
-    delete(data) {
-      let temp = this.head;
-      let previous = null;
-      if (temp.data == data) {
-        this.head = temp.next;
-        return temp.data;
-      }
-      while (temp != null && temp.data != data) {
-        previous = temp;
-        temp = temp.next;
-      }
-      previous.next = temp.next;
-      return temp.data;
-    }
-  
-    searchElement(key) {
-      let current = this.head;
-      while (current != null) {
-        if (current.data == key) {
-          return current.data;
+        else {
+            current = this.head;
+            while (current.next) {
+                current = current.next;
+            }
+            current.next = node;
         }
-        current = current.next;
-      }
-      return false;
-    }
-  
-    sortList(data) {
-      let node = new Node(data);
-      let current = this.head;
-      if (!this.head || node.data <= current.data) {
-        node.next = this.head;
-        this.head = node;
         this.size++;
-      } else {
-        while (current.next && node.data >= current.next.data) {
-          current = current.next;
+    }
+
+    /* 
+    * deletes the string or searchWord,if it already exists
+    */
+    deleteWord(searchWord) {
+        let current = this.head;
+        let previous = null;
+        while (current != null) {
+            if (current.searchWord == searchWord) {
+                if (previous == null) {         //if first element is the searchword
+                    this.head = current.next;   // the saerchword will be removed and head will be the next element
+                }
+                //it works when the search element is not at the first.
+                //so the previos node store the reference of next node.
+                else {
+                    previous.next = current.next;
+                }
+                this.size--;  //size decremented
+                return current.searchWord;
+            }
+            //if search word not found
+            previous = current;
+            current = current.next;
         }
-        node.next = current.next;
-        current.next = node;
-        this.size++;
-        return data;
-      }
+        return -1;
     }
-  
-    showElement() {
-      let arr = [];
-      console.log();
-      this.current = this.head;
-      while (this.current != null) {
-        arr.push(this.current.data);
-        this.current = this.current.next;
-      }
-      return arr;
+
+    // checks the search word already present or not
+
+    searchString(searchWord) {
+        let count = 0;
+        let current = this.head;
+        while (current != null) {
+            if (current.searchWord == searchWord) {
+                return count; //if item found it will return 1
+            }
+            count++;
+            current = current.next;
+        }
+        return -1; //item not found it will return -1
     }
-  }
-  
-  module.exports = new OrderList();
-  
+
+    printWords() {
+        let current = this.head;
+        let string = "";
+        while (current) {
+            string += current.searchWord + " ";
+            current = current.next;
+        }
+        console.log(string);
+        return string;
+    }
+}
+
+
+
+function unorderedList(stringArray, searchWord) {
+
+    let list = new linkedList;
+
+    for (let i = 0; i < stringArray.length; i++) {
+        list.addWord(stringArray[i]);
+    }
+
+    if (list.searchString(searchWord) == -1) {
+        list.addWord(searchWord);
+        console.log("Added successfully..\n");
+    }
+
+    // This condition checks for removing the item,if item already exists in file
+
+    else {
+        list.deleteWord(searchWord);
+        console.log("Removed successfully....\n");
+    }
+
+    //write operation to save updated list into the file.
+    const dataWrite = list.printWords();
+    writeToFile("./UnorderList.txt", dataWrite);
+
+}
+
+function writeToFile(fileName, data) {
+
+
+    fs.writeFile(fileName, data, function (err) {
+        if (err) {
+            return console.log(err);
+        }
+    });
+}
+
+module.exports = { unorderedList };
